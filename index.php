@@ -3,7 +3,7 @@ require_once('functions.php');
 
 $obj = new data();
 
-$result = $obj->index();
+$result = $obj->index('data');
 ?>
 <!doctype html>
 <html>
@@ -44,7 +44,6 @@ $result = $obj->index();
 				<td>
                     <ol style="list-style:none; ">
                     <?php
-                        $index=1;
                         if($result){
                         foreach($result as $rs){
                         ?>

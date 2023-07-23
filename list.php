@@ -4,10 +4,11 @@ $obj = new data();
 
 if(isset($_GET['id'])){
     $id =$_GET['id'];
-    $obj->delete($id);
+    //$image_url = $_GET['image_url'];
+    $obj->delete('data',$id);
 }
 
-$result = $obj->index();
+$result = $obj->index('data');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@ $result = $obj->index();
     <title>Document</title>
 </head>
 <body>
-    <table border="1px">
+    <table border="1px" align="center">
         <tr>
             <th>No.</th>
             <th>Name</th>

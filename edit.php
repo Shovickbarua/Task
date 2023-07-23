@@ -4,13 +4,11 @@ require_once('functions.php');
 $obj = new data();
 
 if(isset($_GET['id'])){
-    $id =$_GET['id'];
-    $result = $obj->edit($id);
+    $id = $_GET['id'];
 }
 
-
 if(isset($_POST['update_data'])){
-    $obj->update($_POST,$_FILES,$id);
+    $obj->update('data',$_POST,$_FILES,$id);
 }
 
 ?>
@@ -23,25 +21,29 @@ if(isset($_POST['update_data'])){
 </head>
 <body>
     <?php 
-        if ($result) {
+    
+        $result = $obj->edit('data',$id);  
+        if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
+			
     ?>
     <form method="POST" enctype="multipart/form-data">
         <div>
             <label for="">Name</label>
-            <input type="text" name="name" value="<?php $row['name'] ?>">
+            <input type="text" name="name" value="<?php echo $row['name'] ?>">
             <label for="">email</label>
-            <input type="text" name="email" value="<?php $row['email'] ?>">
+            <input type="text" name="email" value="<?php echo $row['email'] ?>">
             <label for="">Image</label>
-            <input type="file" name="image" value="<?php $row['image'] ?>">
+            <input type="file" name="image" value="<?php echo $row['image'] ?>">
+            <input type="hidden"  name="oldimage" value="<?php echo $row['image']; ?>">
             <label for="">Date</label>
-            <input type="date" name="date" value="<?php $row['dob'] ?>">
+            <input type="date" name="dob" value="<?php echo $row['dob'] ?>">
             <button type="submit" name="update_data">Submit</button>
         </div>
     </form>
     <?php
-            }
-        }
+         } 
+        }  
     ?>
 </body>
 </html>

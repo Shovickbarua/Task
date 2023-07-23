@@ -3,7 +3,7 @@ require_once('functions.php');
 
 $obj = new data();
 if(isset($_POST['add_data'])){
-    $obj->add($_POST,$_FILES);
+    $obj->add('data',$_POST,$_FILES);
 }
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ if(isset($_POST['add_data'])){
             <label for="">Image</label>
             <input type="file" name="image">
             <label for="">Date</label>
-            <input type="date" name="date">
+            <input type="date" name="dob">
             <button type="submit" name="add_data">Submit</button>
         </div>
     </form>
