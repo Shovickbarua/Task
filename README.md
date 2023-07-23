@@ -1,1 +1,2 @@
 # Task
+First install xampp. Then open a folder in the htdocs file.Go to xampp control panel & start mysql & apache. Go to mysql admin & create a database. Then create tables with column. In case of uploading go to import & upload the sql file & press import. Make sure you have created a database where you want to upload the sql file. Now go to browser & write localhost/task/index.php in the url section.
